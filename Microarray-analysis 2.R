@@ -29,8 +29,21 @@ boxplot(exprs(normalizedata))
 #Lets assume GSM4843 CEL and GSM4844 CEL samples to be leukamea blood cancer 
 and GSM4845 CEL and GSM4846 CEL to be normal blood samples
 
+#Take means/average on each row
+Newdata<-exprs(normalizedata)
+Treatment<-Newdata[,c(1,2)]
+Control<-Newdata[,c(3,4)]
 
+head(Treatment)
+head(Control)
 
+#Apply the rowmeans function to calculate averages
+Treatmentaverage<-rowMeans(Treatment)
+Controlaverage<-rowMeans(Control)
 
+head(Treatmentaverage)
+head(Controlaverage)
 
+#Apply fold change by substraction
+foldchange<-Treatmentaverage-Controlaverage
 
