@@ -36,7 +36,7 @@ Control<-Newdata[,c(3,4)]
 
 head(Treatment)
 head(Control)
-
+head()
 #Apply the rowmeans function to calculate averages
 Treatmentaverage<-rowMeans(Treatment)
 Controlaverage<-rowMeans(Control)
@@ -46,4 +46,10 @@ head(Controlaverage)
 
 #Apply fold change by substraction
 foldchange<-Treatmentaverage-Controlaverage
+head(foldchange)
 
+#If the gene for fold change value is its >2 is an uprugulated gene, and if its < -2
+its downrugulated gene, and if genes are between -2 and +2 they are significant genes.
+
+#Export variable foldchange in an CSV file
+write.csv(foldchange,"foldchange.csv")
